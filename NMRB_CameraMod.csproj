@@ -1,0 +1,439 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>NMRB_CameraMod</AssemblyName>
+    <Description>My first plugin</Description>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.IL2CPP" Version="6.0.0-*" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Ak.Wwise.Api.WAAPI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Ak.Wwise.Api.WAAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\AK.Wwise.Unity.API.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.API.WwiseTypes">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\AK.Wwise.Unity.API.WwiseTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.MonoBehaviour">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\AK.Wwise.Unity.MonoBehaviour.dll</HintPath>
+    </Reference>
+    <Reference Include="AK.Wwise.Unity.Timeline">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\AK.Wwise.Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="ControllerSample">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\ControllerSample.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppMono.Security">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppMono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Configuration">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Core">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Data">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Numerics">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Runtime.Serialization">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Xml">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Xml.Linq">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Il2CppSystem.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.Platform">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Oculus.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Oculus.VR">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Oculus.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="PathCreator">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PathCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="PerfectCulling">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PerfectCulling.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonChat">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonChat.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonRealtime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonRealtime.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonUnityNetworking">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonUnityNetworking.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonUnityNetworking.Utilities">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonUnityNetworking.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonVoice">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonVoice.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonVoice.API">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonVoice.API.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonVoice.PUN">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PhotonVoice.PUN.dll</HintPath>
+    </Reference>
+    <Reference Include="PlayFab">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\PlayFab.dll</HintPath>
+    </Reference>
+    <Reference Include="TechniePhysicsCreator">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\TechniePhysicsCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="UmbraEvolution">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UmbraEvolution.dll</HintPath>
+    </Reference>
+    <Reference Include="UmbraEvolution.PerLayerCameraCulling">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UmbraEvolution.PerLayerCameraCulling.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Animation.Rigging">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Animation.Rigging.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.KdTree">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.ProBuilder.KdTree.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Poly2Tri">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.ProBuilder.Poly2Tri.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Analytics">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Configuration">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Device">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Device.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Environments.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments.Internal">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Environments.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Internal">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Registration">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Scheduler">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Scheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Telemetry">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Telemetry.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Threading">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Services.Core.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Interaction.Toolkit">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.Interaction.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Management">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.Oculus">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.Oculus.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.ConformanceAutomation">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.Features.ConformanceAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.Features.MetaQuestSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.MockRuntime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.Features.MockRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.Features.OculusQuestSupport.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.OpenXR.Features.RuntimeDebugger">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Unity.XR.OpenXR.Features.RuntimeDebugger.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.GIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsNativeModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UIElementsNativeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityCurlModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityCurlModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VirtualTexturingModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.VirtualTexturingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Whinarn.UnityMeshSimplifier.Runtime">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\No More Rainbows\BepInEx\unhollowed\Whinarn.UnityMeshSimplifier.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
